@@ -1,10 +1,3 @@
-# fraud-anomaly-detection
-End-to-end fraud and anomaly detection pipeline — EDA, feature engineering, 
-and 3 unsupervised models (Z-Score, Isolation Forest, DBSCAN) on 10K 
-marketplace transactions. Isolation Forest achieves 100% precision & recall.
-
-
-
 # 🔍 Fraud & Anomaly Detection in Online Marketplaces
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
@@ -38,10 +31,12 @@ fraud-anomaly-detection/
 ├── images/
 │   ├── class_distribution.png
 │   ├── feature_distributions.png
-│   ├── correlation_heatmap.png
-│   ├── anomaly_score_distribution.png
-│   ├── model_comparison.png
-│   └── feature_separation.png
+│   ├── Correlation Heatmap.png
+│   ├── Isolation Forest — Anomaly Score Distribution.png
+│   ├── Model Comparison — Fraud Detection Performance.png
+│   ├── Z-Score — Confusion Matrix.png
+│   ├── Isolation Forest — Confusion Matrix.png
+│   └── DBSCAN — Confusion Matrix.png
 │
 └── README.md
 ```
@@ -66,12 +61,18 @@ The dataset contains **10,000 synthetic marketplace transactions** with a **10% 
 | `unique_items_listed` | Number of unique listings |
 | `is_fraud` | Label: 0 = Normal, 1 = Fraud |
 
-**Key fraud patterns in the data:**
-- New accounts (1–90 days) vs established sellers (180–3,650 days)
-- Transaction velocity spikes (15–80 transactions/week vs 1–10 normal)
-- Low feedback scores (0–60) vs high scores (80–100)
-- Night-time login activity (0–5am)
-- Mass listings (50–500 items vs 1–50 normal)
+---
+
+## 🔍 Exploratory Data Analysis
+
+### Class Distribution
+![Class Distribution](images/class_distribution.png)
+
+### Feature Distributions — Normal vs Fraud
+![Feature Distributions](images/feature_distributions.png)
+
+### Correlation Heatmap
+![Correlation Heatmap](images/Correlation%20Heatmap.png)
 
 ---
 
@@ -90,20 +91,10 @@ Six new features were engineered to enhance model performance:
 
 ---
 
-## 🤖 Models
+## 🤖 Models & Results
 
-### 1. Z-Score (Statistical Baseline)
-Flags transactions where any feature exceeds 3 standard deviations from the mean.
-
-### 2. Isolation Forest
-Tree-based ensemble that isolates anomalies by randomly partitioning the feature space. Anomalies require fewer splits to isolate. Contamination set to 10% (matching known fraud rate).
-
-### 3. DBSCAN
-Density-based clustering that identifies points in low-density regions as anomalies (label = -1). Parameters: `eps=1.5`, `min_samples=5`.
-
----
-
-## 📈 Results
+### Model Comparison
+![Model Comparison](images/Model%20Comparison%20%E2%80%94%20Fraud%20Detection%20Performance.png)
 
 | Model | Precision | Recall | F1-Score | Accuracy | False Positives |
 |---|---|---|---|---|---|
@@ -111,7 +102,19 @@ Density-based clustering that identifies points in low-density regions as anomal
 | **Isolation Forest** | **1.00** | **1.00** | **1.00** | **1.00** | **0** ✅ |
 | DBSCAN | 0.92 | 1.00 | 0.96 | 0.99 | 90 |
 
-**Isolation Forest** achieved perfect separation, confirmed by the anomaly score distribution showing complete separation between normal (scores 0.05–0.20) and fraudulent transactions (scores -0.18 to -0.02).
+---
+
+### Z-Score — Confusion Matrix
+![Z-Score Confusion Matrix](images/Z-Score%20%E2%80%94%20Confusion%20Matrix.png)
+
+### Isolation Forest — Confusion Matrix
+![Isolation Forest Confusion Matrix](images/Isolation%20Forest%20%E2%80%94%20Confusion%20Matrix.png)
+
+### DBSCAN — Confusion Matrix
+![DBSCAN Confusion Matrix](images/DBSCAN%20%E2%80%94%20Confusion%20Matrix.png)
+
+### Isolation Forest — Anomaly Score Distribution
+![Anomaly Score Distribution](images/Isolation%20Forest%20%E2%80%94%20Anomaly%20Score%20Distribution.png)
 
 ---
 
@@ -128,11 +131,12 @@ Density-based clustering that identifies points in low-density regions as anomal
 
 ## 🚀 How to Run
 
-1. Open the notebook on Kaggle: [fraud_anomaly_detection.ipynb](#)
+**On Kaggle:**
+1. Open the notebook: [fraud_anomaly_detection.ipynb](#)
 2. Add the dataset: `marketplace_transactions.csv`
 3. Run all cells in order
 
-**Or locally:**
+**Locally:**
 ```bash
 git clone https://github.com/azar2020/fraud-anomaly-detection.git
 cd fraud-anomaly-detection
