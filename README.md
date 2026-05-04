@@ -17,29 +17,6 @@ The project covers the full data science workflow: exploratory data analysis, fe
 
 ---
 
-## 📂 Repository Structure
-
-```
-fraud-anomaly-detection/
-│
-├── data/
-│   └── marketplace_transactions.csv   # Synthetic transaction dataset
-│
-├── notebooks/
-│   └── fraud_anomaly_detection.ipynb  # Main Kaggle notebook
-│
-├── images/
-│   ├── class_distribution.png
-│   ├── feature_distributions.png
-│   ├── Correlation Heatmap.png
-│   ├── Isolation Forest — Anomaly Score Distribution.png
-│   ├── Model Comparison — Fraud Detection Performance.png
-│   ├── Z-Score — Confusion Matrix.png
-│   ├── Isolation Forest — Confusion Matrix.png
-│   └── DBSCAN — Confusion Matrix.png
-│
-└── README.md
-```
 
 ---
 
@@ -129,22 +106,8 @@ Six new features were engineered to enhance model performance:
 
 ---
 
-## 🚀 How to Run
-
-**On Kaggle:**
-1. Open the notebook: [fraud_anomaly_detection.ipynb](#)
-2. Add the dataset: `marketplace_transactions.csv`
-3. Run all cells in order
-
-**Locally:**
-```bash
-git clone https://github.com/azar2020/fraud-anomaly-detection.git
-cd fraud-anomaly-detection
-pip install -r requirements.txt
-jupyter notebook notebooks/fraud_anomaly_detection.ipynb
-```
-
----
+ 
+ 
 
 ## 🧰 Tech Stack
 
@@ -160,5 +123,5 @@ jupyter notebook notebooks/fraud_anomaly_detection.ipynb
 ## 👤 Author
 
 **Azar Taheri**  
-Data Analyst | Predictive Analytics | Anomaly Detection  
-[LinkedIn](https://linkedin.com/in/azar-taheri) | [GitHub](https://github.com/azar2020) | [Kaggle](https://www.kaggle.com/azartaheri)
+ 
+[LinkedIn](https://linkedin.com/in/azar-taheri)  | [Kaggle](https://www.kaggle.com/azartaheri)
